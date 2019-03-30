@@ -6,7 +6,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import {routerMiddleware, ConnectedRouter} from 'connected-react-router';
 import {createBrowserHistory} from 'history';
-import {Route,Switch} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 
 import './index.css';
 import App from './App';
@@ -21,9 +21,9 @@ const store = createStore(
 ReactDOM.render(
   <Provider store ={store}>
      <ConnectedRouter history={history}>
-       <Switch>
-        <Route path="/" exact component={App} />
-       </Switch>
+       <BrowserRouter>
+        <App />
+       </BrowserRouter>
      </ConnectedRouter>
    </Provider>,
    document.getElementById('root')
