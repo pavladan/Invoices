@@ -6,25 +6,16 @@ import Invoices from './containers/Invoices'
 import CreateInvoice from './containers/CreateInvoice.js'
 import NotFound from './components/NotFound'
 import {Container} from 'react-bootstrap';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-// import {Link} from 'react-router-dom'
-
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {loadDB} from './actions'
 
 class App extends Component {
+  componentDidMount(){
+    this.props.dispatch(loadDB());
+  }
   render() {   
-    this.titleGen = (pathname)=>{
-      switch (pathname){
-        case '/': return 'Invoices';
-        case '/add': return 'Create Invoice';
-        default: return '';
-      }
-    }
-    console.log(this.props.state);
     return (
       <Container>
-        <div className='title'>
-         <h1>{this.titleGen(this.props.state.router.location.pathname)}</h1>
-        </div>
         <Switch>
           <Route exact path="/" component={Invoices}/>
           <Route path="/add" component={CreateInvoice} />
@@ -35,8 +26,4 @@ class App extends Component {
   }
 }
 
-export default connect(
-  (state) => ({
-    state
-  })
-)(App);
+export default connect(state=>({state}))(App);

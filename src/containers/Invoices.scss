@@ -1,0 +1,61 @@
+.Invoices{
+  margin-bottom: 25px;
+  &__actions, &__main{
+    margin-top: 35px;
+    background-color: #fff;
+    border: 1px solid #e4e6e9;
+    padding: 25px;
+  }
+  &__main{
+    .table{
+      margin-top: 15px;
+      &-head{
+        background-color: #f1f3f6;
+        min-height: 50px;
+        border-radius: 5px 5px 0 0;
+        margin: 0;
+        align-items: center;
+        color:#778096;
+      }
+      &-line{
+        position: relative;
+        margin: 0;
+        align-items: center;
+        font-size: 14px;
+        color:#898989;
+        min-height: 70px;
+        .comment{
+          height: 65px;
+          overflow: hidden;
+          width: 100%; 
+          &:hover{
+            position: absolute;
+            background-color: #fff;
+            height: 100%;
+          }
+        }
+        &:hover{
+          cursor: pointer;
+          background-color: #f1f3f6;
+          .delete{
+            &::after{
+              position: absolute;
+              content: '\00d7';
+              right: 1px;
+              top: 0px;
+              font-size: 26px;
+              line-height: 20px;
+              color: #e4e6e9;
+            }
+            &:hover{
+              cursor: pointer;
+              &::after{
+                color:#242f3e;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.CreateInvoice{
+  form{
+    position: relative;
+    margin-top: 35px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #e4e6e9;
+    .form-group{
+      padding: 0 25px 25px 25px;
+      border: 1px solid #e4e6e9;
+      border-radius: 0 15px 0 0;
+      label{
+        margin-top: 25px;
+        font-weight: 500;
+        font-size: 14px;
+      }
+    }
+    a{
+      height: 100%;
+    }
+    .exit{
+      &::after{
+        position: absolute;
+        content: '\00d7';
+        right: 1px;
+        top: 0px;
+        font-size: 26px;
+        line-height: 20px;
+        color: #242f3e;
+      }
+      &:hover{
+        cursor: pointer;
+        &::after{
+          color:#e4e6e9;
+        }
+      }
+    }
+  }
+}
