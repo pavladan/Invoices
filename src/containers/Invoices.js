@@ -9,10 +9,16 @@ class Invoices extends Component{
   onDeleteClick=(e)=>{
     this.props.onDelete(e.target.dataset.id);
   }
+  onOpenClick=(e)=>{
+    
+    document.querySelectorAll('.open').forEach(el=>el !== e.currentTarget && el.classList.remove('open'));
+    e.currentTarget.classList.toggle('open');
+    
+  }
   render(){
     let invoices = this.props.state.invoices;
     this.tableLine = invoices.db && invoices.db.map((el)=>(
-      <Row key ={el.id} className="table-line" >
+      <Row key ={el.id} className="table-line" onClick={this.onOpenClick}>
         <Col>{el.date_created}</Col>
         <Col>{el.number}</Col>
         <Col>{el.date_supply}</Col>

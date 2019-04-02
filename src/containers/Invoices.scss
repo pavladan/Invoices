@@ -24,15 +24,21 @@
         font-size: 14px;
         color:#898989;
         min-height: 70px;
+        &.open{
+          background-color: #f1f3f6;
+          .comment{
+            flex: 1 1 auto;
+            background-color: #fff;
+            height: 100%;
+            overflow: visible;
+            border: 1px solid #f1f3f6;
+            border-radius: 5px;
+          }
+        }
         .comment{
           height: 65px;
           overflow: hidden;
           width: 100%; 
-          &:hover{
-            position: absolute;
-            background-color: #fff;
-            height: 100%;
-          }
         }
         &:hover{
           cursor: pointer;
