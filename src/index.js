@@ -5,15 +5,16 @@ import {createStore, applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import {routerMiddleware, ConnectedRouter} from 'connected-react-router';
-import {createBrowserHistory} from 'history';
-import {BrowserRouter} from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reducer from './reducers';
 
-const history = createBrowserHistory();
+const history = createHistory({
+  basename: process.env.PUBLIC_URL,
+});
 const store = createStore(
   reducer(history),
   composeWithDevTools(applyMiddleware(routerMiddleware(history),thunk))
@@ -21,9 +22,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store ={store}>
      <ConnectedRouter history={history}>
-       <BrowserRouter>
         <App />
-       </BrowserRouter>
      </ConnectedRouter>
    </Provider>,
    document.getElementById('root')
